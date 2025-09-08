@@ -1,0 +1,25 @@
+package com.example.todo.model.http
+
+import com.example.todo.modl.http.TodoDto
+import jakarta.validation.Validation
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import org.springframework.validation.FieldError
+
+class TodoDtoTest {
+
+    val validator = Validation.buildDefaultValidatorFactory().validator
+
+    @Test
+    fun todoDtoTest(){
+        val todoDto = TodoDto().apply {
+            this.title = "테스트"
+            this.description = ""
+            this.schedule = "2020-10-20 13:00:00"
+        }
+
+        val result = validator.validate(todoDto)
+        assertEquals(true, result.isEmpty())
+    }
+
+}
