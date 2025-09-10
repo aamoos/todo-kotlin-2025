@@ -48,7 +48,7 @@ class TodoApiController(
 
     //D
     @DeleteMapping(path = ["/{index}"])
-    fun delete(@PathVariable(name = "index") _index:Int): ResponseEntity<Any>{
+    fun delete(@PathVariable(name = "index") _index:Int): ResponseEntity<Any> {
 
         if(!todoService.delete(_index)){
             return ResponseEntity.status(500).build()
